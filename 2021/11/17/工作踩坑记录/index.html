@@ -70,11 +70,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"yangshuai-uestc.github.io","root":"/","version":"1.8.13","typing":{"enable":true,"typeSpeed":70,"cursorChar":"","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":6,"color":"#FFB6C1","options":{"showSpinner":true,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":"ture","baidu":"a19ad82f8d04c95fca743f736b9b9f49","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"yangshuai-uestc.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":6,"color":"#FFB6C1","options":{"showSpinner":true,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":"ture","baidu":"a19ad82f8d04c95fca743f736b9b9f49","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 6.0.0"></head>
 
 
 <body>
@@ -273,7 +273,7 @@
             
             <div class="markdown-body">
               <h4 id="工作踩坑记录"><a href="#工作踩坑记录" class="headerlink" title="工作踩坑记录"></a>工作踩坑记录</h4><h3 id="01-go截取字符串后乱码"><a href="#01-go截取字符串后乱码" class="headerlink" title="01 go截取字符串后乱码"></a>01 go截取字符串后乱码</h3><p>在做项目时，用到go string字符串的索引来截取字符串，截取后出现了乱码</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs go">str := <span class="hljs-string">&quot;深圳&quot;</span><br><br>str1 := str[<span class="hljs-number">0</span>:<span class="hljs-number">1</span>]  <span class="hljs-comment">// 想截取出“深”但得到的是�</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><pre><code class="hljs go">str := <span class="hljs-string">&quot;深圳&quot;</span><br><br>str1 := str[<span class="hljs-number">0</span>:<span class="hljs-number">1</span>]  <span class="hljs-comment">// 想截取出“深”但得到的是�</span><br></code></pre></td></tr></table></figure>
 
 <p>经验证后发现，go语言中string底层是byte切片，中文字体用3byte存储，而英文和数字用1byte存储，通过索引切片的模式自然会截取出中文编码的一部分，因此造成乱码的结果</p>
 <p><img src="/img/2021-11-17/image-20211117144416660.png" srcset="/img/loading.gif" lazyload alt="image-20211117144416660"></p>
