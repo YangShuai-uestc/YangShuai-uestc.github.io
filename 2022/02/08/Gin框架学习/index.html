@@ -16,23 +16,24 @@
   <meta name="author" content="Catsyang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="gin框架学习笔记">
+    <meta name="description" content="Gin框架学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="gin框架学习笔记">
-<meta property="og:url" content="https://yangshuai-uestc.github.io/2022/01/26/gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="Gin框架学习">
+<meta property="og:url" content="https://yangshuai-uestc.github.io/2022/02/08/Gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Catsyang&#39;s website">
-<meta property="og:description" content="gin框架学习笔记">
+<meta property="og:description" content="Gin框架学习">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://yangshuai-uestc.github.io/img/2022-01-26/gin.png">
-<meta property="article:published_time" content="2022-01-26T02:24:49.000Z">
-<meta property="article:modified_time" content="2022-02-08T12:40:23.511Z">
+<meta property="og:image" content="https://yangshuai-uestc.github.io/img/Gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/gin.png">
+<meta property="article:published_time" content="2022-02-08T12:44:12.000Z">
+<meta property="article:modified_time" content="2022-02-08T12:46:15.111Z">
 <meta property="article:author" content="Catsyang">
 <meta property="article:tag" content="golang">
+<meta property="article:tag" content="学习">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://yangshuai-uestc.github.io/img/2022-01-26/gin.png">
+<meta name="twitter:image" content="https://yangshuai-uestc.github.io/img/Gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/gin.png">
   
   
-  <title>gin框架学习笔记 - Catsyang&#39;s website</title>
+  <title>Gin框架学习 - Catsyang&#39;s website</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -185,12 +186,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/2022-01-26/gin.png') no-repeat center center;
+         style="background: url('/img/Gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/gin.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="gin框架学习笔记">
+            <span class="h2" id="subtitle" title="Gin框架学习">
               
             </span>
 
@@ -205,8 +206,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-01-26 10:24" pubdate>
-        2022年1月26日 上午
+      <time datetime="2022-02-08 20:44" pubdate>
+        2022年2月8日 晚上
       </time>
     </span>
   
@@ -262,7 +263,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">gin框架学习笔记</h1>
+            <h1 style="display: none">Gin框架学习</h1>
             
               <p class="note note-info">
                 
@@ -271,22 +272,19 @@
               </p>
             
             <div class="markdown-body">
-              <h1 id="Gin框架学习笔记"><a href="#Gin框架学习笔记" class="headerlink" title="Gin框架学习笔记"></a>Gin框架学习笔记</h1><blockquote>
-<p>之前在QQ音乐实习的时候，一直用的是TEG那边写的going框架+TME在此基础上的封装，一直没能目睹Gin框架的真容，目前IEG所在组用的是Gin，正好学习一下优秀开源框架的设计思想，故记录此文</p>
-</blockquote>
-<blockquote>
+              <blockquote>
+<p>前言：之前在QQ音乐实习的时候，一直用的是TEG那边写的going框架+TME在此基础上的封装，一直没能目睹Gin框架的真容，目前IEG所在组用的是Gin，正好学习一下优秀开源框架的设计思想，故记录此文</p>
 <p><a target="_blank" rel="noopener" href="https://gin-gonic.com/">https://gin-gonic.com/</a></p>
 </blockquote>
-<figure class="highlight go"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;github.com/gin-gonic/gin&quot;</span><br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>	r := gin.Default()<br>	r.GET(<span class="hljs-string">&quot;/ping&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(c *gin.Context)</span></span> &#123;<br>		c.JSON(<span class="hljs-number">200</span>, gin.H&#123;<br>			<span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;pong&quot;</span>,<br>		&#125;)<br>	&#125;)<br>	r.Run() <span class="hljs-comment">// listen and serve on 0.0.0.0:8080</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="Gin框架学习"><a href="#Gin框架学习" class="headerlink" title="Gin框架学习"></a>Gin框架学习</h1><figure class="highlight go"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;github.com/gin-gonic/gin&quot;</span><br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>	r := gin.Default()<br>	r.GET(<span class="hljs-string">&quot;/ping&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(c *gin.Context)</span></span> &#123;<br>		c.JSON(<span class="hljs-number">200</span>, gin.H&#123;<br>			<span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;pong&quot;</span>,<br>		&#125;)<br>	&#125;)<br>	r.Run() <span class="hljs-comment">// listen and serve on 0.0.0.0:8080</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h3 id="1-Gin-Middleware"><a href="#1-Gin-Middleware" class="headerlink" title="1. Gin Middleware"></a>1. Gin Middleware</h3><p>在学习项目源码的过程中，看到大量使用了中间件，比如统计某接口的耗时，进行登陆态校验，开启跨域函数等等，那么这个中间件是个什么东西？</p>
-<h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><blockquote>
-<h3 id="Middleware-support"><a href="#Middleware-support" class="headerlink" title="Middleware support"></a>Middleware support</h3><p>An incoming HTTP request can be handled by a chain of middlewares and the final action. For example: Logger, Authorization, GZIP and finally post a message in the DB.</p>
+<h4 id="Middleware-support"><a href="#Middleware-support" class="headerlink" title="Middleware support"></a>Middleware support</h4><blockquote>
+<p>An incoming HTTP request can be handled by a chain of middlewares and the final action. For example: Logger, Authorization, GZIP and finally post a message in the DB.</p>
 </blockquote>
 <p>从Gin的官网介绍大概能得知中间件是一个可以处理HTTP请求的函数调用链，这类似与Java中的Filter过滤器或者是Spring中的Interceptor拦截器，可以统一在请求接口之前或之后执行我们定义的中间件。</p>
-<blockquote>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs go">&gt;<span class="hljs-comment">// HandlerFunc defines the handler used by gin middleware as return value.</span><br>&gt;<span class="hljs-keyword">type</span> HandlerFunc <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(*Context)</span></span><br><br>&gt;<span class="hljs-comment">// HandlersChain defines a HandlerFunc array.</span><br>&gt;<span class="hljs-keyword">type</span> HandlersChain []HandlerFunc<br></code></pre></td></tr></table></figure>
-</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">// HandlerFunc defines the handler used by gin middleware as return value.</span><br><span class="hljs-keyword">type</span> HandlerFunc <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(*Context)</span></span><br><br><span class="hljs-comment">// HandlersChain defines a HandlerFunc array.</span><br><span class="hljs-keyword">type</span> HandlersChain []HandlerFunc<br></code></pre></td></tr></table></figure>
+
 <h4 id="用例Demo"><a href="#用例Demo" class="headerlink" title="用例Demo"></a>用例Demo</h4><p>了解了基本的概念之后，如何使用？开发文档提供了如下Demo</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">Logger</span><span class="hljs-params">()</span> <span class="hljs-title">gin</span>.<span class="hljs-title">HandlerFunc</span></span> &#123;<br>	<span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(c *gin.Context)</span></span> &#123;<br>		t := time.Now()<br>		<span class="hljs-comment">// Set example variable</span><br>		c.Set(<span class="hljs-string">&quot;example&quot;</span>, <span class="hljs-string">&quot;12345&quot;</span>)<br>		<span class="hljs-comment">// before request</span><br><br>		c.Next()<br><br>		<span class="hljs-comment">// after request</span><br>		latency := time.Since(t)<br>		log.Print(latency)<br>		<span class="hljs-comment">// access the status we are sending</span><br>		status := c.Writer.Status()<br>		log.Println(status)<br>	&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>	r := gin.New()<br>	r.Use(Logger()) <span class="hljs-comment">// 注册中间件</span><br>	r.GET(<span class="hljs-string">&quot;/test&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(c *gin.Context)</span></span> &#123;  <span class="hljs-comment">// 注册/test接口对应的执行方法</span><br>		example := c.MustGet(<span class="hljs-string">&quot;example&quot;</span>).(<span class="hljs-keyword">string</span>)<br>		<span class="hljs-comment">// it would print: &quot;12345&quot;</span><br>		log.Println(example)<br>	&#125;)<br>	<span class="hljs-comment">// Listen and serve on 0.0.0.0:8080</span><br>	r.Run(<span class="hljs-string">&quot;:8080&quot;</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -300,17 +298,17 @@
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">// GET is a shortcut for router.Handle(&quot;GET&quot;, path, handle).</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(group *RouterGroup)</span> <span class="hljs-title">GET</span><span class="hljs-params">(relativePath <span class="hljs-keyword">string</span>, handlers ...HandlerFunc)</span> <span class="hljs-title">IRoutes</span></span> &#123;<br>	<span class="hljs-keyword">return</span> group.handle(http.MethodGet, relativePath, handlers)<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(group *RouterGroup)</span> <span class="hljs-title">handle</span><span class="hljs-params">(httpMethod, relativePath <span class="hljs-keyword">string</span>, handlers HandlersChain)</span> <span class="hljs-title">IRoutes</span></span> &#123;<br>	absolutePath := group.calculateAbsolutePath(relativePath) <span class="hljs-comment">// 绝对地址</span><br>	handlers = group.combineHandlers(handlers) <span class="hljs-comment">// 将注册的func合并到HandlersChain中</span><br>	group.engine.addRoute(httpMethod, absolutePath, handlers)<br>	<span class="hljs-keyword">return</span> group.returnObj()<br>&#125;<br><br><span class="hljs-keyword">const</span> abortIndex <span class="hljs-keyword">int8</span> = math.MaxInt8 / <span class="hljs-number">2</span> <span class="hljs-comment">// =63</span><br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(group *RouterGroup)</span> <span class="hljs-title">combineHandlers</span><span class="hljs-params">(handlers HandlersChain)</span> <span class="hljs-title">HandlersChain</span></span> &#123;<br>	finalSize := <span class="hljs-built_in">len</span>(group.Handlers) + <span class="hljs-built_in">len</span>(handlers) <span class="hljs-comment">// HandlersChain已有的HandlerFunc + 当前要添加的HandlerFunc的长度大于最大长度则panic</span><br>	<span class="hljs-keyword">if</span> finalSize &gt;= <span class="hljs-keyword">int</span>(abortIndex) &#123;<br>		<span class="hljs-built_in">panic</span>(<span class="hljs-string">&quot;too many handlers&quot;</span>)<br>	&#125;<br>	mergedHandlers := <span class="hljs-built_in">make</span>(HandlersChain, finalSize)<br>	<span class="hljs-built_in">copy</span>(mergedHandlers, group.Handlers) <span class="hljs-comment">// copy原有的HandlerFunc到新的slice mergedHandlers</span><br>	<span class="hljs-built_in">copy</span>(mergedHandlers[<span class="hljs-built_in">len</span>(group.Handlers):], handlers) <span class="hljs-comment">// copy新增的HandlerFunc</span><br>	<span class="hljs-keyword">return</span> mergedHandlers<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>因此，在像Demo中调用的那样之后，HandlersChain 会形成这样一个Slice，里面的HandlerFunc是依次顺序执行的。</p>
-<p><img src="/img/2022-01-26/image-20220126195307202.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/Gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/image-20220126195307202.png" srcset="/img/loading.gif" lazyload></p>
 <p>再来看<code>Next()</code>，实现原理很简单，首先是index指针自增1，随后进入一个死循环，依次执行HandlersChain Slice中的下一个HandlerFunc直到最后</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">// Next should be used only inside middleware.</span><br><span class="hljs-comment">// It executes the pending handlers in the chain inside the calling handler.</span><br><span class="hljs-comment">// See example in GitHub.</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(c *Context)</span> <span class="hljs-title">Next</span><span class="hljs-params">()</span></span> &#123;<br>	c.index++<br>	<span class="hljs-keyword">for</span> c.index &lt; <span class="hljs-keyword">int8</span>(<span class="hljs-built_in">len</span>(c.handlers)) &#123; <span class="hljs-comment">// 死循环</span><br>		c.handlers[c.index](c) <span class="hljs-comment">// 执行HandlersChain Slice中下一个HandlerFunc</span><br>		c.index++<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>所以Demo中代码首先执行<code>Logger()</code>，在设置完example中的值之后调用了<code>Next()</code>从而执行main.main.func1，最后再回到main.Logger.func1执行3和4</p>
-<p><img src="/img/2022-01-26/image-20220126195826399.png" srcset="/img/loading.gif" lazyload alt="image-20220126195826399"></p>
+<p><img src="/img/Gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/image-20220126195826399.png" srcset="/img/loading.gif" lazyload alt="image-20220126195826399"></p>
 <h4 id="踩坑点"><a href="#踩坑点" class="headerlink" title="踩坑点"></a>踩坑点</h4><p>需要注意的是，<code>Use()</code>需要在<code>Get() Post()...</code>之类的方法之前调用，否则HandlersChain中只会有<code>Use()</code>添加的中间件而不会有<code>Get() Post()...</code>添加的接口执行函数，因为只有在<code>handle()</code>方法中才会进行HandlersChain的copy和append</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>	r := gin.New()<br>	r.Use(TimeExpend)<br>	r.GET(<span class="hljs-string">&quot;/ping&quot;</span>, f1, process, f2, f3)<br>	r.Run() <span class="hljs-comment">// listen and serve on 0.0.0.0:8080 (for windows &quot;localhost:8080&quot;)</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">TimeExpend</span><span class="hljs-params">(c *gin.Context)</span></span> &#123;<br>	t := time.Now()<br>	c.Next()<br>	fmt.Println(time.Since(t))<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">process</span><span class="hljs-params">(c *gin.Context)</span></span> &#123;<br>	fmt.Println(<span class="hljs-string">&quot;process&quot;</span>)<br>	c.JSON(<span class="hljs-number">200</span>, gin.H&#123;<br>		<span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;pong&quot;</span>,<br>	&#125;)<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">f1</span><span class="hljs-params">(c *gin.Context)</span></span> &#123;<br>	fmt.Println(<span class="hljs-string">&quot;f1&quot;</span>)<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">f2</span><span class="hljs-params">(c *gin.Context)</span></span> &#123;<br>	fmt.Println(<span class="hljs-string">&quot;f2&quot;</span>)<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">f3</span><span class="hljs-params">(c *gin.Context)</span></span> &#123;<br>	fmt.Println(<span class="hljs-string">&quot;f3&quot;</span>)<br>&#125;<br><span class="hljs-comment">// 执行链条 TimeExpend记录开始时间-&gt;f1-&gt;process-&gt;f2-&gt;f3-&gt;TimeExpend打印耗时</span><br><span class="hljs-comment">// 输出结果:</span><br><span class="hljs-comment">// f1</span><br><span class="hljs-comment">// process</span><br><span class="hljs-comment">// f2</span><br><span class="hljs-comment">// f3</span><br><span class="hljs-comment">// 106.441µs</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="/img/2022-01-26/image-20220126224500983.png" srcset="/img/loading.gif" lazyload alt="image-20220126224500983"></p>
-<p>end</p>
+<p><img src="/img/Gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/image-20220126224500983.png" srcset="/img/loading.gif" lazyload alt="image-20220126224500983"></p>
+<h3 id="2-Gin-路由树"><a href="#2-Gin-路由树" class="headerlink" title="2. Gin 路由树"></a>2. Gin 路由树</h3><p>TODO</p>
 
             </div>
             <hr>
@@ -329,6 +327,8 @@
                     <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/golang/">golang</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
                     
                   </div>
                 
@@ -349,8 +349,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/11/17/%E5%B7%A5%E4%BD%9C%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">
-                        <span class="hidden-mobile">工作踩坑记录</span>
+                      <a href="/2022/01/30/Golang%E5%B9%B6%E5%8F%91%E6%B5%85%E6%9E%90/">
+                        <span class="hidden-mobile">Golang并发浅析</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
