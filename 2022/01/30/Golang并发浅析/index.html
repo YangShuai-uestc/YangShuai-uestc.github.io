@@ -324,7 +324,7 @@
 <p>一般将P设置为CPU的逻辑线程数，可以最大化多核CPU的性能，同时减少内核级线程切换的开销</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go">runtime.GOMAXPROCS(runtime.NumCPU())<br></code></pre></td></tr></table></figure>
 
-<p>单从线程调度讲，像Java、C++等其他语言的多线程都是OS线程的抽象，是由OS内核来调度的。相比大多数并行设计模型，Go比较优势的设计就是P上下文这个概念的出现，如果只有G和M的对应关系，那么当G阻塞在IO上的时候，M是没有实际在工作的，这样造成了资源的浪费，没有了P，那么所有G的列表都放在全局，这样导致临界区太大，对多核调度造成极大影响。而Go语言的<code>goroutine</code>则是由Go的运行时（runtime）自己的调度器Saga调度的，这个调度器复用/调度m个goroutine到n个OS线程。 其一大特点是goroutine的调度是在用户态下完成的， 不涉及内核态与用户态之间的频繁切换，包括内存的分配与释放，都是在用户态维护着一块大的内存池， 不直接调用系统的malloc函数（除非内存池需要改变），成本比调度OS线程低很多。 另一方面充分利用了多核的硬件资源，近似的把若干goroutine均分在物理线程上， 再加上本身goroutine的超轻量，以上种种保证了go调度方面的性能。</p>
+<p>单从线程调度讲，像Java、C++等其他语言的多线程都是OS线程的抽象，是由OS内核来调度的。相比大多数并行设计模型，Go比较优势的设计就是P上下文这个概念的出现，如果只有G和M的对应关系，那么当G阻塞在IO上的时候，M是没有实际在工作的，这样造成了资源的浪费，没有了P，那么所有G的列表都放在全局，这样导致临界区太大，对多核调度造成极大影响。而Go语言的<code>goroutine</code>则是由Go的运行时（runtime）自己的调度器Saga调度的，这个调度器复用&#x2F;调度m个goroutine到n个OS线程。 其一大特点是goroutine的调度是在用户态下完成的， 不涉及内核态与用户态之间的频繁切换，包括内存的分配与释放，都是在用户态维护着一块大的内存池， 不直接调用系统的malloc函数（除非内存池需要改变），成本比调度OS线程低很多。 另一方面充分利用了多核的硬件资源，近似的把若干goroutine均分在物理线程上， 再加上本身goroutine的超轻量，以上种种保证了go调度方面的性能。</p>
 <h2 id="Saga-scheduler"><a href="#Saga-scheduler" class="headerlink" title="Saga scheduler"></a>Saga scheduler</h2><p>TODO</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KBZlN0izeiY">https://www.youtube.com/watch?v=KBZlN0izeiY</a></p>
 <p><a target="_blank" rel="noopener" href="https://speakerdeck.com/kavya719/understanding-channels">https://speakerdeck.com/kavya719/understanding-channels</a></p>
