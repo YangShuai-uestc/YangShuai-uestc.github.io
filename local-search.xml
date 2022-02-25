@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>工作经验总结</title>
+    <link href="/2022/02/25/%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
+    <url>/2022/02/25/%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/</url>
+    
+    <content type="html"><![CDATA[<h4 id="工作经验总结"><a href="#工作经验总结" class="headerlink" title="工作经验总结"></a>工作经验总结</h4><h3 id="01-go语言层面的一些优化"><a href="#01-go语言层面的一些优化" class="headerlink" title="01 go语言层面的一些优化"></a>01 go语言层面的一些优化</h3><ol><li>json序列化的过程一般比较耗时，能通过其他方式解决则最好不用序列化和反序列化，序列化耗时的大头之一在于反射的过程，尤其是对于反射到<code>interface&#123;&#125;</code>类型的变量，会比反射到确定的类型耗时，所以能确定<code>int</code>或者<code>string</code>或其他类型就尽量不反射到<code>interface&#123;&#125;</code>    </li><li>go里的字符串和java一样是不可变的，代码中如果直接用<code>+</code>拼接字符串，会生成大量的字符串，尽量用<code>sync.Pool</code>池化思想来复用常用的字符串，对于字符串拼接可用<code>bytes.Buffer</code>结构来实现</li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>Work</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>golang</tag>
+      
+      <tag>tencent</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Gin框架学习</title>
     <link href="/2022/02/08/Gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/"/>
     <url>/2022/02/08/Gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/</url>
