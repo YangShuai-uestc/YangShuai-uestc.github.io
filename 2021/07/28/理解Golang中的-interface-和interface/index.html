@@ -23,14 +23,14 @@
 <meta property="og:site_name" content="Catsyang&#39;s website">
 <meta property="og:description" content="Goland中的[]interface{}和interface{}对比">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://yangshuai-uestc.github.io/img/2021-07-28/main.png">
+<meta property="og:image" content="https://yangshuai-uestc.github.io/img/%E7%90%86%E8%A7%A3golang%E4%B8%AD%E7%9A%84/main.png">
 <meta property="article:published_time" content="2021-07-28T13:54:42.000Z">
-<meta property="article:modified_time" content="2022-01-19T11:52:17.710Z">
+<meta property="article:modified_time" content="2022-02-27T14:16:48.157Z">
 <meta property="article:author" content="Catsyang">
 <meta property="article:tag" content="golang">
 <meta property="article:tag" content="interface">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://yangshuai-uestc.github.io/img/2021-07-28/main.png">
+<meta name="twitter:image" content="https://yangshuai-uestc.github.io/img/%E7%90%86%E8%A7%A3golang%E4%B8%AD%E7%9A%84/main.png">
   
   
   <title>理解Golang中的[]interface{}和interface{} - Catsyang&#39;s website</title>
@@ -186,7 +186,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/2021-07-28/main.png') no-repeat center center;
+         style="background: url('/img/%E7%90%86%E8%A7%A3golang%E4%B8%AD%E7%9A%84/main.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -267,7 +267,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年1月19日 晚上
+                  本文最后更新于：2022年2月27日 晚上
                 
               </p>
             
@@ -286,12 +286,12 @@
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>	method(<span class="hljs-string">&quot;string&quot;</span>)<br>	method(<span class="hljs-number">123</span>)<br>	method(<span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">int</span>))<br>	method(<span class="hljs-built_in">make</span>([]<span class="hljs-keyword">interface</span>&#123;&#125;, <span class="hljs-number">0</span>))<br>	method(<span class="hljs-literal">true</span>)<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">method</span><span class="hljs-params">(arg <span class="hljs-keyword">interface</span>&#123;&#125;)</span></span> &#123;<br><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>所以Do方法的返回值是<code>interface&#123;&#125;</code>类型，但本质上应该是<code>[]interface&#123;&#125;</code>类型，又因为redis的hkeys操作返回的是field字符串数组</p>
-<p><img src="/img/2021-07-28/image-20210727231339355.png" srcset="/img/loading.gif" lazyload alt="image-20210727231339355"></p>
+<p><img src="/img/%E7%90%86%E8%A7%A3golang%E4%B8%AD%E7%9A%84/image-20210727231339355.png" srcset="/img/loading.gif" lazyload alt="image-20210727231339355"></p>
 <p>那么上述命令的返回值实际上应该是<code>[]string</code>或者<code>[]byte</code>类型，于是利用golang的类型判定，写出了如下代码</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>	<span class="hljs-keyword">var</span> a <span class="hljs-keyword">interface</span>&#123;&#125; = method()<br>	bytes := a.([]<span class="hljs-keyword">byte</span>)<br>	fmt.Println(bytes)<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">method</span><span class="hljs-params">()</span> <span class="hljs-title">interface</span></span>&#123;&#125; &#123;<br>	ans := <span class="hljs-built_in">make</span>([]<span class="hljs-keyword">interface</span>&#123;&#125;, <span class="hljs-number">0</span>)<br>	<span class="hljs-keyword">return</span> <span class="hljs-built_in">append</span>(ans, []<span class="hljs-keyword">byte</span>&#123;<span class="hljs-number">96</span>, <span class="hljs-number">97</span>, <span class="hljs-number">98</span>, <span class="hljs-number">99</span>&#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>然而，编译器狠狠的打了我的脸</p>
-<p><img src="/img/2021-07-28/image-20210727234046713.png" srcset="/img/loading.gif" lazyload alt="image-20210727234046713"></p>
+<p><img src="/img/%E7%90%86%E8%A7%A3golang%E4%B8%AD%E7%9A%84/image-20210727234046713.png" srcset="/img/loading.gif" lazyload alt="image-20210727234046713"></p>
 <p>既然<code>interface&#123;&#125;</code>能代表任意类型，那么<code>interface&#123;&#125;</code>的切片为什么不能代表任意类型的切片呢？</p>
 <p>了解了相关底层数据存储原理后，这个问题也就迎刃而解了</p>
 <p>一个<code>interface&#123;&#125;</code>类型的变量的底层存储结构由两个字word组成；一个字用于指向该值底层类型的方法表，另一个字用于指向实际数据</p>

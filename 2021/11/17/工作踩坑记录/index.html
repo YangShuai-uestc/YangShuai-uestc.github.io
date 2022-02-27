@@ -23,14 +23,14 @@
 <meta property="og:site_name" content="Catsyang&#39;s website">
 <meta property="og:description" content="踩坑记录">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://yangshuai-uestc.github.io/img/%E5%B7%A5%E4%BD%9C%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/main.jpg">
+<meta property="og:image" content="https://yangshuai-uestc.github.io/img/go.png">
 <meta property="article:published_time" content="2021-11-17T03:30:24.000Z">
-<meta property="article:modified_time" content="2022-02-27T09:58:37.131Z">
+<meta property="article:modified_time" content="2022-02-27T14:16:48.153Z">
 <meta property="article:author" content="Catsyang">
 <meta property="article:tag" content="golang">
 <meta property="article:tag" content="tencent">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://yangshuai-uestc.github.io/img/%E5%B7%A5%E4%BD%9C%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/main.jpg">
+<meta name="twitter:image" content="https://yangshuai-uestc.github.io/img/go.png">
   
   
   <title>工作踩坑记录 - Catsyang&#39;s website</title>
@@ -186,7 +186,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/%E5%B7%A5%E4%BD%9C%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/main.jpg') no-repeat center center;
+         style="background: url('/img/go.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -217,7 +217,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.6k 字
+      2.4k 字
     </span>
   
 
@@ -226,7 +226,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      22 分钟
+      21 分钟
     </span>
   
 
@@ -267,7 +267,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年2月27日 下午
+                  本文最后更新于：2022年2月27日 晚上
                 
               </p>
             
@@ -301,7 +301,6 @@
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs go">s1 := []<span class="hljs-keyword">int</span>&#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>&#125; <span class="hljs-comment">// len = 4, cap = 4</span><br>s2 := s1 <span class="hljs-comment">// s2 和 s1 指向同一个地址</span><br>s1 = <span class="hljs-built_in">append</span>(s1, <span class="hljs-number">5</span>) <span class="hljs-comment">// s1 发生扩容, 此时 cap = 8, s1 指向新的地址, 4个元素copy到新的地址并添加元素5</span><br>s3 := s1 <span class="hljs-comment">// 此时 s3 和 s1 是同一个地址，s2是原来的地址</span><br>s1 = <span class="hljs-built_in">append</span>(s1, <span class="hljs-number">6</span>) <span class="hljs-comment">// append 操作会将 s1 的 len+1 虽然 s1 和 s3 指向的内存地址一样，但len不同 所以打印的元素不同</span><br><br>s1[<span class="hljs-number">0</span>] = <span class="hljs-number">100</span><br>fmt.Println(<span class="hljs-string">&quot;s1=&quot;</span>, s1) <span class="hljs-comment">// s1= [100 2 3 4 5 6]</span><br>fmt.Println(<span class="hljs-string">&quot;s2=&quot;</span>, s2) <span class="hljs-comment">// s2= [1 2 3 4]</span><br>fmt.Println(<span class="hljs-string">&quot;s3=&quot;</span>, s3) <span class="hljs-comment">// s3= [100 2 3 4 5]</span><br><br></code></pre></td></tr></table></figure>
 
 <p><img src="/img/%E5%B7%A5%E4%BD%9C%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/image-20220227174922677.png" srcset="/img/loading.gif" lazyload alt="image-20220227174922677"></p>
-<p>![image-20220227175832302](&#x2F;Users&#x2F;catsyang&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20220227175832302.png)</p>
 <h3 id="5-panic-proto-message-data-collection-protos-PerformanceReq-is-already-registered"><a href="#5-panic-proto-message-data-collection-protos-PerformanceReq-is-already-registered" class="headerlink" title="5. panic: proto: message data_collection_protos.PerformanceReq is already registered"></a>5. panic: proto: message data_collection_protos.PerformanceReq is already registered</h3><p>原因是ugc_control服务中引用了utils服务，utils服务引用middlewares版本为v1.1.2，ugc_control服务中引用的最新版本，不同版本的middlewares导致 go 认为是两个包，从而重复注册两个data_collection_protos导致panic</p>
 <p>解决：首先是按照网上的方法降级到指定的版本避免panic，但是这样做的话服务会不断的重启，只好从根源解决重复注册问题，将项目中通过其他服务间接用到的middlewares全部升级为最新版本</p>
 <p><a target="_blank" rel="noopener" href="https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict">https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict</a></p>
