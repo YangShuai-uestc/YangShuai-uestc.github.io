@@ -33,30 +33,27 @@
 <meta name="twitter:image" content="https://yangshuai-uestc.github.io/img/Gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/gin.png">
   
   
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
   <title>Gin框架学习 - Catsyang&#39;s website</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
 
+
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
   <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-  
-    
-    
-      
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
-    
-  
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
 
-  
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
 
 
@@ -65,21 +62,70 @@
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"yangshuai-uestc.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":6,"color":"#FFB6C1","options":{"showSpinner":true,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":"ture","baidu":"a19ad82f8d04c95fca743f736b9b9f49","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"yangshuai-uestc.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":6,"color":"#FFB6C1","options":{"showSpinner":true,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":"ture","follow_dnt":true,"baidu":"a19ad82f8d04c95fca743f736b9b9f49","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 6.0.0"></head>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?a19ad82f8d04c95fca743f736b9b9f49";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
 <body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
       <strong>Catsyang&#39;s space</strong>
@@ -173,6 +219,7 @@
               &nbsp;<i class="iconfont icon-search"></i>&nbsp;
             </a>
           </li>
+          
         
         
           <li class="nav-item" id="color-toggle-btn">
@@ -185,70 +232,84 @@
   </div>
 </nav>
 
-    <div class="banner" id="banner" parallax=true
-         style="background: url('/img/Gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/gin.png') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Gin框架学习">
-              
-            </span>
-
-            
-              <div class="mt-3">
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-author" aria-hidden="true"></i>
-      Catsyang
-    </span>
-  
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-02-08 20:44" pubdate>
-        2022年2月8日 晚上
-      </time>
-    </span>
-  
-</div>
-
-<div class="mt-1">
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      5.3k 字
-    </span>
   
 
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      44 分钟
-    </span>
-  
-
-  
-  
-    
-      <!-- 不蒜子统计文章PV -->
-      <span id="busuanzi_container_page_pv" style="display: none">
-        <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <span id="busuanzi_value_page_pv"></span> 次
-      </span>
-    
-  
-</div>
-
-            
-          </div>
-
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/Gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/gin.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Gin框架学习"></span>
           
         </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Catsyang
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-02-08 20:44" pubdate>
+          2022年2月8日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          5.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          44 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
       </div>
+
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
@@ -257,26 +318,35 @@
 
 <div class="container-fluid nopadding-x">
   <div class="row nomargin-x">
-    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
     <div class="col-lg-8 nopadding-x-md">
       <div class="container nopadding-x-md" id="board-ctn">
-        <div class="py-5" id="board">
+        <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">Gin框架学习</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年2月8日 晚上
+                  
+                    <!-- compatible with older versions-->
+                    本文最后更新于：2022年2月8日 晚上
+                  
                 
               </p>
             
-            <div class="markdown-body">
-              <blockquote>
+            
+              <div class="markdown-body">
+                
+                <blockquote>
 <p>前言：之前在QQ音乐实习的时候，一直用的是TEG那边写的going框架+TME在此基础上的封装，一直没能目睹Gin框架的真容，目前IEG所在组用的是Gin，正好学习一下优秀开源框架的设计思想，故记录此文</p>
 <p><a target="_blank" rel="noopener" href="https://gin-gonic.com/">https://gin-gonic.com/</a></p>
 </blockquote>
-<h1 id="Gin框架学习"><a href="#Gin框架学习" class="headerlink" title="Gin框架学习"></a>Gin框架学习</h1><figure class="highlight go"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;github.com/gin-gonic/gin&quot;</span><br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>	r := gin.Default()<br>	r.GET(<span class="hljs-string">&quot;/ping&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(c *gin.Context)</span></span> &#123;<br>		c.JSON(<span class="hljs-number">200</span>, gin.H&#123;<br>			<span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;pong&quot;</span>,<br>		&#125;)<br>	&#125;)<br>	r.Run() <span class="hljs-comment">// listen and serve on 0.0.0.0:8080</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="Gin框架学习"><a href="#Gin框架学习" class="headerlink" title="Gin框架学习"></a>Gin框架学习</h1><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;github.com/gin-gonic/gin&quot;</span><br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>	r := gin.Default()<br>	r.GET(<span class="hljs-string">&quot;/ping&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(c *gin.Context)</span></span> &#123;<br>		c.JSON(<span class="hljs-number">200</span>, gin.H&#123;<br>			<span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;pong&quot;</span>,<br>		&#125;)<br>	&#125;)<br>	r.Run() <span class="hljs-comment">// listen and serve on 0.0.0.0:8080</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h3 id="1-Gin-Middleware"><a href="#1-Gin-Middleware" class="headerlink" title="1. Gin Middleware"></a>1. Gin Middleware</h3><p>在学习项目源码的过程中，看到大量使用了中间件，比如统计某接口的耗时，进行登陆态校验，开启跨域函数等等，那么这个中间件是个什么东西？</p>
 <h4 id="Middleware-support"><a href="#Middleware-support" class="headerlink" title="Middleware support"></a>Middleware support</h4><blockquote>
@@ -286,21 +356,21 @@
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">// HandlerFunc defines the handler used by gin middleware as return value.</span><br><span class="hljs-keyword">type</span> HandlerFunc <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(*Context)</span></span><br><br><span class="hljs-comment">// HandlersChain defines a HandlerFunc array.</span><br><span class="hljs-keyword">type</span> HandlersChain []HandlerFunc<br></code></pre></td></tr></table></figure>
 
 <h4 id="用例Demo"><a href="#用例Demo" class="headerlink" title="用例Demo"></a>用例Demo</h4><p>了解了基本的概念之后，如何使用？开发文档提供了如下Demo</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">Logger</span><span class="hljs-params">()</span> <span class="hljs-title">gin</span>.<span class="hljs-title">HandlerFunc</span></span> &#123;<br>	<span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(c *gin.Context)</span></span> &#123;<br>		t := time.Now()<br>		<span class="hljs-comment">// Set example variable</span><br>		c.Set(<span class="hljs-string">&quot;example&quot;</span>, <span class="hljs-string">&quot;12345&quot;</span>)<br>		<span class="hljs-comment">// before request</span><br><br>		c.Next()<br><br>		<span class="hljs-comment">// after request</span><br>		latency := time.Since(t)<br>		log.Print(latency)<br>		<span class="hljs-comment">// access the status we are sending</span><br>		status := c.Writer.Status()<br>		log.Println(status)<br>	&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>	r := gin.New()<br>	r.Use(Logger()) <span class="hljs-comment">// 注册中间件</span><br>	r.GET(<span class="hljs-string">&quot;/test&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(c *gin.Context)</span></span> &#123;  <span class="hljs-comment">// 注册/test接口对应的执行方法</span><br>		example := c.MustGet(<span class="hljs-string">&quot;example&quot;</span>).(<span class="hljs-keyword">string</span>)<br>		<span class="hljs-comment">// it would print: &quot;12345&quot;</span><br>		log.Println(example)<br>	&#125;)<br>	<span class="hljs-comment">// Listen and serve on 0.0.0.0:8080</span><br>	r.Run(<span class="hljs-string">&quot;:8080&quot;</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">Logger</span><span class="hljs-params">()</span></span> gin.HandlerFunc &#123;<br>	<span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(c *gin.Context)</span></span> &#123;<br>		t := time.Now()<br>		<span class="hljs-comment">// Set example variable</span><br>		c.Set(<span class="hljs-string">&quot;example&quot;</span>, <span class="hljs-string">&quot;12345&quot;</span>)<br>		<span class="hljs-comment">// before request</span><br><br>		c.Next()<br><br>		<span class="hljs-comment">// after request</span><br>		latency := time.Since(t)<br>		log.Print(latency)<br>		<span class="hljs-comment">// access the status we are sending</span><br>		status := c.Writer.Status()<br>		log.Println(status)<br>	&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>	r := gin.New()<br>	r.Use(Logger()) <span class="hljs-comment">// 注册中间件</span><br>	r.GET(<span class="hljs-string">&quot;/test&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(c *gin.Context)</span></span> &#123;  <span class="hljs-comment">// 注册/test接口对应的执行方法</span><br>		example := c.MustGet(<span class="hljs-string">&quot;example&quot;</span>).(<span class="hljs-type">string</span>)<br>		<span class="hljs-comment">// it would print: &quot;12345&quot;</span><br>		log.Println(example)<br>	&#125;)<br>	<span class="hljs-comment">// Listen and serve on 0.0.0.0:8080</span><br>	r.Run(<span class="hljs-string">&quot;:8080&quot;</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">curl --location --request GET &#x27;http://localhost:8080/test&#x27;<br>2022/01/26 17:38:34 12345<br>2022/01/26 17:38:34 140.807µs<br>2022/01/26 17:38:34 200<br></code></pre></td></tr></table></figure>
 
 <p>可以看到，在注册了<code>Logger()</code>中间件后，依次是打印了<code>example</code>、<code>latency</code>和<code>status</code>三个变量的值。</p>
-<h4 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">// Use attaches a global middleware to the router. ie. the middleware attached though Use() will be</span><br><span class="hljs-comment">// included in the handlers chain for every single request. Even 404, 405, static files...</span><br><span class="hljs-comment">// For example, this is the right place for a logger or error management middleware.</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(engine *Engine)</span> <span class="hljs-title">Use</span><span class="hljs-params">(middleware ...HandlerFunc)</span> <span class="hljs-title">IRoutes</span></span> &#123;<br>	engine.RouterGroup.Use(middleware...)<br>	engine.rebuild404Handlers()<br>	engine.rebuild405Handlers()<br>	<span class="hljs-keyword">return</span> engine<br>&#125;<br><br><span class="hljs-comment">// Use adds middleware to the group, see example code in GitHub.</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(group *RouterGroup)</span> <span class="hljs-title">Use</span><span class="hljs-params">(middleware ...HandlerFunc)</span> <span class="hljs-title">IRoutes</span></span> &#123;<br>	group.Handlers = <span class="hljs-built_in">append</span>(group.Handlers, middleware...) <span class="hljs-comment">// 将多个中间件添加到group.Handlers也就是slice中</span><br>	<span class="hljs-keyword">return</span> group.returnObj()<br>&#125;<br><br><span class="hljs-comment">// RouterGroup is used internally to configure router, a RouterGroup is associated with</span><br><span class="hljs-comment">// a prefix and an array of handlers (middleware).</span><br><span class="hljs-keyword">type</span> RouterGroup <span class="hljs-keyword">struct</span> &#123;<br>	Handlers HandlersChain<br>	basePath <span class="hljs-keyword">string</span><br>	engine   *Engine<br>	root     <span class="hljs-keyword">bool</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">// Use attaches a global middleware to the router. ie. the middleware attached though Use() will be</span><br><span class="hljs-comment">// included in the handlers chain for every single request. Even 404, 405, static files...</span><br><span class="hljs-comment">// For example, this is the right place for a logger or error management middleware.</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(engine *Engine)</span></span> Use(middleware ...HandlerFunc) IRoutes &#123;<br>	engine.RouterGroup.Use(middleware...)<br>	engine.rebuild404Handlers()<br>	engine.rebuild405Handlers()<br>	<span class="hljs-keyword">return</span> engine<br>&#125;<br><br><span class="hljs-comment">// Use adds middleware to the group, see example code in GitHub.</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(group *RouterGroup)</span></span> Use(middleware ...HandlerFunc) IRoutes &#123;<br>	group.Handlers = <span class="hljs-built_in">append</span>(group.Handlers, middleware...) <span class="hljs-comment">// 将多个中间件添加到group.Handlers也就是slice中</span><br>	<span class="hljs-keyword">return</span> group.returnObj()<br>&#125;<br><br><span class="hljs-comment">// RouterGroup is used internally to configure router, a RouterGroup is associated with</span><br><span class="hljs-comment">// a prefix and an array of handlers (middleware).</span><br><span class="hljs-keyword">type</span> RouterGroup <span class="hljs-keyword">struct</span> &#123;<br>	Handlers HandlersChain<br>	basePath <span class="hljs-type">string</span><br>	engine   *Engine<br>	root     <span class="hljs-type">bool</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>可以看到，<code>Use()</code>将多个中间件函数注册到RouterGroup这个结构体中的HandlersChain slice中</p>
 <p>再来看<code>Get()</code>是如何执行并访问到注册的接口的</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">// GET is a shortcut for router.Handle(&quot;GET&quot;, path, handle).</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(group *RouterGroup)</span> <span class="hljs-title">GET</span><span class="hljs-params">(relativePath <span class="hljs-keyword">string</span>, handlers ...HandlerFunc)</span> <span class="hljs-title">IRoutes</span></span> &#123;<br>	<span class="hljs-keyword">return</span> group.handle(http.MethodGet, relativePath, handlers)<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(group *RouterGroup)</span> <span class="hljs-title">handle</span><span class="hljs-params">(httpMethod, relativePath <span class="hljs-keyword">string</span>, handlers HandlersChain)</span> <span class="hljs-title">IRoutes</span></span> &#123;<br>	absolutePath := group.calculateAbsolutePath(relativePath) <span class="hljs-comment">// 绝对地址</span><br>	handlers = group.combineHandlers(handlers) <span class="hljs-comment">// 将注册的func合并到HandlersChain中</span><br>	group.engine.addRoute(httpMethod, absolutePath, handlers)<br>	<span class="hljs-keyword">return</span> group.returnObj()<br>&#125;<br><br><span class="hljs-keyword">const</span> abortIndex <span class="hljs-keyword">int8</span> = math.MaxInt8 / <span class="hljs-number">2</span> <span class="hljs-comment">// =63</span><br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(group *RouterGroup)</span> <span class="hljs-title">combineHandlers</span><span class="hljs-params">(handlers HandlersChain)</span> <span class="hljs-title">HandlersChain</span></span> &#123;<br>	finalSize := <span class="hljs-built_in">len</span>(group.Handlers) + <span class="hljs-built_in">len</span>(handlers) <span class="hljs-comment">// HandlersChain已有的HandlerFunc + 当前要添加的HandlerFunc的长度大于最大长度则panic</span><br>	<span class="hljs-keyword">if</span> finalSize &gt;= <span class="hljs-keyword">int</span>(abortIndex) &#123;<br>		<span class="hljs-built_in">panic</span>(<span class="hljs-string">&quot;too many handlers&quot;</span>)<br>	&#125;<br>	mergedHandlers := <span class="hljs-built_in">make</span>(HandlersChain, finalSize)<br>	<span class="hljs-built_in">copy</span>(mergedHandlers, group.Handlers) <span class="hljs-comment">// copy原有的HandlerFunc到新的slice mergedHandlers</span><br>	<span class="hljs-built_in">copy</span>(mergedHandlers[<span class="hljs-built_in">len</span>(group.Handlers):], handlers) <span class="hljs-comment">// copy新增的HandlerFunc</span><br>	<span class="hljs-keyword">return</span> mergedHandlers<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">// GET is a shortcut for router.Handle(&quot;GET&quot;, path, handle).</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(group *RouterGroup)</span></span> GET(relativePath <span class="hljs-type">string</span>, handlers ...HandlerFunc) IRoutes &#123;<br>	<span class="hljs-keyword">return</span> group.handle(http.MethodGet, relativePath, handlers)<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(group *RouterGroup)</span></span> handle(httpMethod, relativePath <span class="hljs-type">string</span>, handlers HandlersChain) IRoutes &#123;<br>	absolutePath := group.calculateAbsolutePath(relativePath) <span class="hljs-comment">// 绝对地址</span><br>	handlers = group.combineHandlers(handlers) <span class="hljs-comment">// 将注册的func合并到HandlersChain中</span><br>	group.engine.addRoute(httpMethod, absolutePath, handlers)<br>	<span class="hljs-keyword">return</span> group.returnObj()<br>&#125;<br><br><span class="hljs-keyword">const</span> abortIndex <span class="hljs-type">int8</span> = math.MaxInt8 / <span class="hljs-number">2</span> <span class="hljs-comment">// =63</span><br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(group *RouterGroup)</span></span> combineHandlers(handlers HandlersChain) HandlersChain &#123;<br>	finalSize := <span class="hljs-built_in">len</span>(group.Handlers) + <span class="hljs-built_in">len</span>(handlers) <span class="hljs-comment">// HandlersChain已有的HandlerFunc + 当前要添加的HandlerFunc的长度大于最大长度则panic</span><br>	<span class="hljs-keyword">if</span> finalSize &gt;= <span class="hljs-type">int</span>(abortIndex) &#123;<br>		<span class="hljs-built_in">panic</span>(<span class="hljs-string">&quot;too many handlers&quot;</span>)<br>	&#125;<br>	mergedHandlers := <span class="hljs-built_in">make</span>(HandlersChain, finalSize)<br>	<span class="hljs-built_in">copy</span>(mergedHandlers, group.Handlers) <span class="hljs-comment">// copy原有的HandlerFunc到新的slice mergedHandlers</span><br>	<span class="hljs-built_in">copy</span>(mergedHandlers[<span class="hljs-built_in">len</span>(group.Handlers):], handlers) <span class="hljs-comment">// copy新增的HandlerFunc</span><br>	<span class="hljs-keyword">return</span> mergedHandlers<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>因此，在像Demo中调用的那样之后，HandlersChain 会形成这样一个Slice，里面的HandlerFunc是依次顺序执行的。</p>
 <p><img src="/img/Gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/image-20220126195307202.png" srcset="/img/loading.gif" lazyload></p>
 <p>再来看<code>Next()</code>，实现原理很简单，首先是index指针自增1，随后进入一个死循环，依次执行HandlersChain Slice中的下一个HandlerFunc直到最后</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">// Next should be used only inside middleware.</span><br><span class="hljs-comment">// It executes the pending handlers in the chain inside the calling handler.</span><br><span class="hljs-comment">// See example in GitHub.</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(c *Context)</span> <span class="hljs-title">Next</span><span class="hljs-params">()</span></span> &#123;<br>	c.index++<br>	<span class="hljs-keyword">for</span> c.index &lt; <span class="hljs-keyword">int8</span>(<span class="hljs-built_in">len</span>(c.handlers)) &#123; <span class="hljs-comment">// 死循环</span><br>		c.handlers[c.index](c) <span class="hljs-comment">// 执行HandlersChain Slice中下一个HandlerFunc</span><br>		c.index++<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">// Next should be used only inside middleware.</span><br><span class="hljs-comment">// It executes the pending handlers in the chain inside the calling handler.</span><br><span class="hljs-comment">// See example in GitHub.</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(c *Context)</span></span> Next() &#123;<br>	c.index++<br>	<span class="hljs-keyword">for</span> c.index &lt; <span class="hljs-type">int8</span>(<span class="hljs-built_in">len</span>(c.handlers)) &#123; <span class="hljs-comment">// 死循环</span><br>		c.handlers[c.index](c) <span class="hljs-comment">// 执行HandlersChain Slice中下一个HandlerFunc</span><br>		c.index++<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>所以Demo中代码首先执行<code>Logger()</code>，在设置完example中的值之后调用了<code>Next()</code>从而执行main.main.func1，最后再回到main.Logger.func1执行3和4</p>
 <p><img src="/img/Gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/image-20220126195826399.png" srcset="/img/loading.gif" lazyload alt="image-20220126195826399"></p>
@@ -310,42 +380,96 @@
 <p><img src="/img/Gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/image-20220126224500983.png" srcset="/img/loading.gif" lazyload alt="image-20220126224500983"></p>
 <h3 id="2-Gin-路由树"><a href="#2-Gin-路由树" class="headerlink" title="2. Gin 路由树"></a>2. Gin 路由树</h3><p>TODO</p>
 
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/Golang/">Golang</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/golang/">golang</a>
-                    
-                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
-                    
-                  </div>
                 
               </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Golang/" class="category-chain-item">Golang</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/golang/">#golang</a>
+      
+        <a href="/tags/%E5%AD%A6%E4%B9%A0/">#学习</a>
+      
+    </div>
+  
+</div>
+
+
               
-                <p class="note note-warning">
-                  
-                    转载请注明出处！
-                  
-                </p>
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Gin框架学习</div>
+      <div>https://yangshuai-uestc.github.io/2022/02/08/Gin框架学习/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Catsyang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年2月8日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
               
-              
-                <div class="post-prevnext">
+                <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/02/25/%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/">
+                      <a href="/2022/02/25/%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/" title="工作经验总结">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">工作经验总结</span>
                         <span class="visible-mobile">上一篇</span>
@@ -355,7 +479,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/01/30/Golang%E5%B9%B6%E5%8F%91%E6%B5%85%E6%9E%90/">
+                      <a href="/2022/01/30/Golang%E5%B9%B6%E5%8F%91%E6%B5%85%E6%9E%90/" title="Golang并发浅析">
                         <span class="hidden-mobile">Golang并发浅析</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -367,12 +491,8 @@
             </div>
 
             
-              <!-- Comments -->
-              <article class="comments" id="comments" lazyload>
-                
-                  
-                
-                
+  <article id="comments" lazyload>
+    
   <div id="valine"></div>
   <script type="text/javascript">
     Fluid.utils.loadComments('#valine', function() {
@@ -386,7 +506,9 @@
         )
         new Valine(options);
         Fluid.utils.waitElementVisible('#valine .vcontent', () => {
-          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
         })
       });
     });
@@ -394,25 +516,57 @@
   <noscript>Please enable JavaScript to view the comments</noscript>
 
 
-              </article>
-            
+  </article>
+
+
           </article>
         </div>
       </div>
     </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
-      </div>
-    
+
+
+  </aside>
+
+
+    </div>
   </div>
 </div>
 
-<!-- Custom -->
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
 
 
     
@@ -437,56 +591,58 @@
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
+
     
 
     
   </main>
 
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
+  <footer>
+    <div class="footer-inner">
   
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
-
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
   
 
   
-</footer>
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
 
+  
+  
+  
+</div>
 
-  <!-- SCRIPTS -->
+  </footer>
+
+  <!-- Scripts -->
   
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
@@ -505,10 +661,22 @@
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
-<!-- Plugins -->
 
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
 
-  <script  src="/js/local-search.js" ></script>
 
 
 
@@ -518,82 +686,90 @@
 
 
 
-  
-
-
 
   
-    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
-  
-  
-    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
-  
-  
-    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
-  
-  
-    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
-  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
 
 
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
 
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
-      
-        typing(title);
-      
-    })(window, document);
-  </script>
 
-
-
-
-
-
-
-
-
-
-
-
-  
-    <!-- Baidu Analytics -->
-    <script defer>
-      var _hmt = _hmt || [];
-      (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?a19ad82f8d04c95fca743f736b9b9f49";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
-    </script>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
 <script  src="/js/boot.js" ></script>
 
 
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 </body>
 </html>
